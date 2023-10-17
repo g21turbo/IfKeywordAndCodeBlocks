@@ -20,6 +20,9 @@ public class MainChallenge {
 
          */
 
+        calculateScore();
+        newCalculateScore(true,20000, 8, 1000);
+
 
         boolean gameOver = true;
         int score = 800;
@@ -56,4 +59,35 @@ public class MainChallenge {
         }
 
     }
+
+    public static void calculateScore() {
+
+        boolean gameOver = true;
+        int score = 800;
+        int levelCompleted = 5;
+        int bonus = 100;
+        int finalScore = score;
+
+        if (gameOver) {
+            finalScore += (levelCompleted * bonus);
+            finalScore += 1000;
+            System.out.println("Your final score was " + finalScore);
+        }
+
+    }
+
+    public static void newCalculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+
+        int finalScore = score;
+
+        if (gameOver) {
+            finalScore += (levelCompleted * bonus);
+            finalScore += 1000;
+            System.out.println("Your final score was " + finalScore);
+        }
+
+    }
+
+
+
 }
