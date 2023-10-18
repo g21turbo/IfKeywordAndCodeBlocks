@@ -20,21 +20,38 @@ public class MainChallenge {
 
          */
 
-        calculateScore();
-        newCalculateScore(true,20000, 8, 1000);
-
-
         boolean gameOver = true;
         int score = 800;
         int levelCompleted = 5;
         int bonus = 100;
-        int finalScore = score;
 
-        if (gameOver) {
-            finalScore += (levelCompleted * bonus);
-            finalScore += 1000;
-            System.out.println("Your final score was " + finalScore);
-        }
+
+        calculateScore();
+        newCalculateScore(true, 20000, 8, 1000);
+        newCalculateScore(gameOver, score, levelCompleted, bonus);
+
+        int highScore = newestCalculateScore(gameOver, score, levelCompleted, bonus);
+        System.out.println("The high score is " + highScore);
+
+        score = 10000;
+        levelCompleted = 8;
+        bonus = 200;
+
+        System.out.println("The next high score is " +
+                newestCalculateScore(gameOver, score, levelCompleted, bonus));
+
+
+//        boolean gameOver = true;
+//        int score = 800;
+//        int levelCompleted = 5;
+//        int bonus = 100;
+//        int finalScore = score;
+
+//        if (gameOver) {
+//            finalScore += (levelCompleted * bonus);
+//            finalScore += 1000;
+//            System.out.println("Your final score was " + finalScore);
+//        }
 
 //        boolean newGameOver = true;
 //        int newScore = 1000;
@@ -47,16 +64,16 @@ public class MainChallenge {
 //            System.out.println("Your final score was " + newFinalScore);
 //        }
 
-        gameOver = true;
-        score = 10000;
-        levelCompleted = 8;
-        bonus = 200;
-        finalScore = score;
-
-        if (gameOver) {
-            finalScore += (levelCompleted * bonus);
-            System.out.println("Your final score was " + finalScore);
-        }
+//        gameOver = true;
+//        score = 10000;
+//        levelCompleted = 8;
+//        bonus = 200;
+//        finalScore = score;
+//
+//        if (gameOver) {
+//            finalScore += (levelCompleted * bonus);
+//            System.out.println("Your final score was " + finalScore);
+//        }
 
     }
 
@@ -85,9 +102,16 @@ public class MainChallenge {
             finalScore += 1000;
             System.out.println("Your final score was " + finalScore);
         }
-
     }
 
+    public static int newestCalculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
 
+        int finalScore = score;
 
+        if (gameOver) {
+            finalScore += (levelCompleted * bonus);
+            finalScore += 1000;
+        }
+        return finalScore;
+    }
 }
